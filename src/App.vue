@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
       <Topbar />
       <div>
         <Sidebar />
@@ -29,6 +29,10 @@ export default {
 }
 </script>
 
-<style>
-p{color: red;}
+<style lang="scss">
+  .container {
+     height: 100%;
+     display: flex;
+     flex-direction: column;
+}
 </style>
