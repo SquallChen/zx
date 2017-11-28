@@ -1,11 +1,11 @@
 <template>
   <div class="container">
-      <Topbar />
-      <div>
-        <Sidebar />
-        <Content />
-      </div>
-      <Footer />
+    <Topbar />
+    <div class="main">
+      <Sidebar />
+      <Content />
+    </div>
+    <Footer />
   </div>
 </template>
 
@@ -30,9 +30,24 @@ export default {
 </script>
 
 <style lang="scss">
+  html,body{
+    height: 100%;
+    min-width:1300px;
+    font:12px/24px "hiragino sans gb","Microsoft YaHei", "微软雅黑", SimSun, SimHei, Arial;
+  }
   .container {
      height: 100%;
      display: flex;
      flex-direction: column;
+
+
+     >.main {
+      flex:1;
+      display: flex;
+      min-width: 1300px;
+      justify-content: space-around;
+      }
+
 }
+
 </style>

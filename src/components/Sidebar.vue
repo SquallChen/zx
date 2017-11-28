@@ -13,5 +13,7 @@ export default {
 <style>
   #Sidebar{
     color: blue;
+    background: #333;
+    width:136px;
   }
 </style>

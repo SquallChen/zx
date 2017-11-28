@@ -12,6 +12,8 @@ export default {
 
 <style>
   #Footer{
+    height: 36px;
     color: black;
+    background: green;
   }
 </style>
