@@ -5,12 +5,28 @@
       <div class="teacherinfo">
         <div class="qrcode"></div>
         <div class="welcome">
-          <p>您好，叶晓辉 任课教师</p>
+          <p>您好，<span>叶晓辉</span><span>任课教师</span></p>
           <p>角色：教师</p>
         </div>
       </div>
     </div>
     <div class="navigation">
+      <ul class="leftsidenav">
+        <li><a><span class="school-affairs"></span>校务</a></li>
+        <li><a><span class="Teaching"></span>教务</a></li>
+        <li><a><span class="Teacher"></span>教师</a></li>
+        <li><a><span class="score"></span>成绩</a></li>
+        <li><a><span class="system"></span>系统</a></li>
+        <li><a><span class="moral-education"></span>德育</a></li>
+      </ul>
+      <ul class="rightsidenav">
+        <li><a class="commonmenu"><span class="common"></span>常用菜单</a></li>
+        <li><a class="message"><span class="mess"></span>你有(0)条未读信息</a></li>
+        <li><a><span class="indexpage"></span>首页</a></li>
+        <li><a><span class="set"></span>设置</a></li>
+        <li><a class="addressbook"><span class="address"></span>通讯录</a></li>
+        <li><a><span class="quit"></span>退出</a></li>
+      </ul>
     </div>
   </div>
 </template>
@@ -23,12 +39,11 @@ export default {
 
 <style lang="scss">
   #Topbar{
-    height:110px;
-    color: red;
+    height:109px;
     background: url('../assets/images/header_bg.jpg');
 
     >.header{
-      height:78px;
+      height:77px;
       display: flex;
       justify-content: space-between;
 
@@ -44,7 +59,7 @@ export default {
         justify-content: center;
         align-items: center;
         text-align: right;
-        margin-right:39px;
+        margin-right:37px;
         >.qrcode{
           width:65px;
           height:65px;
@@ -57,10 +72,127 @@ export default {
           font-size: 14px;
           font-weight: bold;
           margin-top:26px;
-          margin-left:6px;
+          margin-left:10px;
 
           >p{
             line-height: 24px;
+
+            >span{
+              margin-right:8px;
+            }
+          }
+        }
+      }
+    }
+    >.navigation{
+      display: flex;
+      justify-content: space-between;
+      height:32px;
+      background: #6e4c1c;
+
+      >ul{
+        display: inline-block;
+
+        >li{
+          display: inline-block;
+
+          >a{
+            display: inline-block;
+            color:white;
+            font-size: 14px;
+            font-weight: bold;
+            margin-left:-3.6px;
+            cursor: pointer;
+            &:hover{
+              background: url('../assets/images/nav-hover.gif') center bottom no-repeat;
+            }
+          }
+        }
+      }
+      >.leftsidenav{
+        margin-left:21px;
+        >li{
+
+          >a{
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            width:71px;
+            height:32px;
+            text-align: center;
+
+            >.school-affairs{
+              background-position-x: -25px;
+            }
+            >.Teaching{
+              background-position-x: -50px;
+            }
+            >.Teacher{
+              background-position: -25px;
+            }
+            >.score{
+              background-position: -75px -25px;
+            }
+            >.system{
+              background-position-y: -50px;
+            }
+            >.moral-education{
+               background-position-x: -25px;
+            }
+            >span{
+            display: inline-block;
+            width:25px;
+            height:25px;
+            margin-right:3px;
+            background:url('../assets/images/icon.png') no-repeat;
+             }
+          }
+        }
+      }
+      >.rightsidenav{
+        margin-right: 40px;
+        >li{
+          >a{
+            display: flex;
+            justify-content:center;
+            align-items:center;
+            width:71px;
+            height:32px;
+            text-align: center;
+            cursor: pointer;
+            >span{
+              display: inline-block;
+              width:25px;
+              height:25px;
+              margin-right:3px;
+            }
+            >.common{
+              background: url('../assets/images/icon.png') no-repeat -50px -50px;
+            }
+            >.mess{
+              background: url('../assets/images/messge_icon.png') no-repeat 0 2px;
+            }
+            >.indexpage{
+              background: url('../assets/images/icon.png') no-repeat;
+            }
+            >.set{
+              background: url('../assets/images/index_set_icon.png') no-repeat;
+            }
+            >.address{
+              background: url('../assets/images/icon.png') no-repeat -25px -50px;
+            }
+            >.quit{
+              background: url('../assets/images/icon.png') no-repeat -50px -50px;
+            }
+          }
+          >.commonmenu{
+              width:99px;
+          }
+          >.message{
+            width:160px;
+          }
+          >.addressbook{
+            width:85px;
           }
         }
       }
