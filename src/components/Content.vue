@@ -13,7 +13,8 @@ export default {
 <style>
   #Content{
     color: green;
-    background: #999;
+    background: white;
     flex-grow: 1;
+    margin-top:15px;
   }
 </style>

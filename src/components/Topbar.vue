@@ -12,22 +12,22 @@
     </div>
     <div class="navigation">
       <ul class="leftsidenav">
-        <li><a :class="{active: 'school-affairs' === selected}"
+        <li><a href="#" :class="{active: 'school-affairs' === selected}"
         @click="selected = 'school-affairs'">
         <span class="school-affairs"></span>校务</a></li>
-        <li><a :class="{active: 'Teaching' === selected}" @click="selected = 'Teaching'"><span class="Teaching"></span>教务</a></li>
-        <li><a :class="{active: 'Teacher' === selected}" @click="selected  = 'Teacher'"><span class="Teacher"></span>教师</a></li>
-        <li><a :class="{active: 'score' === selected}" @click="selected = 'score'"><span class="score"></span>成绩</a></li>
-        <li><a :class="{active: 'system' === selected}" @click="selected = 'system'"><span class="system"></span>系统</a></li>
-        <li><a :class="{active: 'morale-ducation' === selected}" @click="selected = 'morale-ducation'"><span class="moral-education"></span>德育</a></li>
+        <li><a href="#" :class="{active: 'Teaching' === selected}" @click="selected = 'Teaching'"><span class="Teaching"></span>教务</a></li>
+        <li><a href="#" :class="{active: 'Teacher' === selected}" @click="selected  = 'Teacher'"><span class="Teacher"></span>教师</a></li>
+        <li><a href="#" :class="{active: 'score' === selected}" @click="selected = 'score'"><span class="score"></span>成绩</a></li>
+        <li><a href="#" :class="{active: 'system' === selected}" @click="selected = 'system'"><span class="system"></span>系统</a></li>
+        <li><a href="#" :class="{active: 'morale-ducation' === selected}" @click="selected = 'morale-ducation'"><span class="moral-education"></span>德育</a></li>
       </ul>
       <ul class="rightsidenav">
-        <li><a class="commonmenu" @click="selected = 'common'"><span class="common"></span>常用菜单</a></li>
-        <li><a class="message" @click="selected = 'mess'"><span class="mess"></span>你有(0)条未读信息</a></li>
-        <li><a  @click="selected = 'indexpage'"><span class="indexpage"></span>首页</a></li>
-        <li><a @click="selected = 'set'"><span class="set"></span>设置</a></li>
-        <li><a class="addressbook" @click="selected = 'addressbook'"><span class="address"></span>通讯录</a></li>
-        <li><a @click="selected = 'quit'"><span class="quit"></span>退出</a></li>
+        <li><a href="#" class="common-menu" @click="selected = 'common'"><span class="common"></span>常用菜单</a></li>
+        <li><a href="#" class="message" @click="selected = 'mess'"><span class="mess"></span>你有(0)条未读信息</a></li>
+        <li><a href="#" @click="selected = 'indexpage'"><span class="indexpage"></span>首页</a></li>
+        <li><a href="#" @click="selected = 'set'"><span class="set"></span>设置</a></li>
+        <li><a href="#" class="address-book" @click="selected = 'address-book'"><span class="address"></span>通讯录</a></li>
+        <li><a href="#" @click="selected = 'quit'"><span class="quit"></span>退出</a></li>
       </ul>
     </div>
   </div>
@@ -42,9 +42,9 @@ export default {
     }
   },
   methods: {
-       alert(meg){
+      /*  alert(meg){
         alert(this.selected)
-      }
+      } */
       },
 }
 </script>
@@ -199,7 +199,7 @@ export default {
               background: url('../assets/images/icon.png') no-repeat -50px -50px;
             }
           }
-          >.commonmenu{
+          >.common-menu{
               width:99px;
           }
           >.message{

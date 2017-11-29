@@ -46,6 +46,7 @@ export default {
       display: flex;
       min-width: 1300px;
       justify-content: space-around;
+      background-color: #e4e4e4;
       }
 
 }
