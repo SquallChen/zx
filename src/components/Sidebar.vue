@@ -31,10 +31,11 @@ export default {
     display: flex;
     align-items: center;
     flex-direction: column;
-    width:166px;
+    min-width:166px;
     margin-top:15px;
     color: #808080;
     font-size: 14px;
+    overflow: hidden;
     >.menu-box{
       display: flex;
       justify-content: space-between;

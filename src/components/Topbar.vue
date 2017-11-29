@@ -71,7 +71,7 @@ export default {
         justify-content: center;
         align-items: center;
         text-align: right;
-        margin-right:37px;
+        margin-right:22px;
         >.qrcode{
           width:65px;
           height:65px;

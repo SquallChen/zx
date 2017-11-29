@@ -31,12 +31,13 @@ export default {
 
 <style lang="scss">
   html,body{
+    min-height: 768px;
     height: 100%;
     min-width:1300px;
     font:12px/24px "hiragino sans gb","Microsoft YaHei", "微软雅黑", SimSun, SimHei, Arial;
   }
   .container {
-     height: 100%;
+     min-height: 100%;
      display: flex;
      flex-direction: column;
 
@@ -45,8 +46,9 @@ export default {
       flex:1;
       display: flex;
       min-width: 1300px;
-      justify-content: space-around;
+
       background-color: #e4e4e4;
+
       }
 
 }
