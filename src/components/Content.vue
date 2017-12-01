@@ -10,9 +10,9 @@
           <li><span><a href="#">关于2016学年补交教师存档材料的通知</a></span>
           <span class="notice-time">2017-11-28</span>
           <span class="announcer">李流柳</span></li> -->
-          <li><span><a href="#">关于2016学年补交教师存档材料的通知</a></span>
-          <span class="notice-time">2017-11-28</span>
-          <span class="announcer">李流柳</span></li>
+          <li  v-for = "(ntcdata,index) in noticedata " v-if="index < 6" :key="ntcdata.index"><span><a href="#">{{ntcdata.notice_title}}</a></span>
+          <span class="notice-time">{{ntcdata.release_time}}</span>
+          <span class="announcer">{{ntcdata.announcer}}</span></li>
         </ul>
       </div>
       <div class="new-students-management"></div>
@@ -30,10 +30,31 @@
 
 
 <script>
-import Vue from 'vue'
+
 export default {
-  name: 'Contents'
+  name: 'Contents',
+  data:function(){
+    return {
+      noticedata:'',
+    }
+  },
+  mounted: function() {
+    this.getJsonInfo()
+},
+methods: {
+    getJsonInfo: function() {
+        this.$http.get('notice.json').then(function(response){
+            console.log(response.data.data)
+            var tempdata = response.data.data
+            this.noticedata = tempdata
+        }).catch(function(response){
+            console.log(response)
+            console.log("居然没有弹窗")
+        })
+    }
+    }
 }
+
 </script>
 
 
