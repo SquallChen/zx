@@ -4,12 +4,15 @@
       <div class="new-notice">
         <ul>
           <li class="ultitle"><span>最新学校通知</span><span><a href="#" class="more">更多>></a></span></li>
+        <!--   <li><span><a href="#">关于2016学年补交教师存档材料的通知</a></span>
+          <span class="notice-time">2017-11-28</span>
+          <span class="announcer">李流柳</span></li>
           <li><span><a href="#">关于2016学年补交教师存档材料的通知</a></span>
           <span class="notice-time">2017-11-28</span>
-          <span class="publisher">李流柳</span></li>
+          <span class="announcer">李流柳</span></li> -->
           <li><span><a href="#">关于2016学年补交教师存档材料的通知</a></span>
           <span class="notice-time">2017-11-28</span>
-          <span class="publisher">李流柳</span></li>
+          <span class="announcer">李流柳</span></li>
         </ul>
       </div>
       <div class="new-students-management"></div>
@@ -24,11 +27,15 @@
   </div>
 </template>
 
+
+
 <script>
+import Vue from 'vue'
 export default {
-  name: 'Content'
+  name: 'Contents'
 }
 </script>
+
 
 <style lang="scss">
   #Content{
@@ -47,6 +54,7 @@ export default {
     >li{
       height:26px;
       padding-left:14px;
+      padding-top:1px;
 
       >span{
 
@@ -68,7 +76,7 @@ export default {
             border-left: 2px solid #d0c7aa;
             color: #4a4949;
         }
-      >.publisher{
+      >.announcer{
             float:right;
             text-align: center;
             display: inline-block;
@@ -119,6 +127,8 @@ export default {
         flex-grow:1;
         &:nth-child(odd){
         >ul{
+          border-left: 3px solid #d0c7aa;
+          border-right: 3px solid #d0c7aa;
           >li{
             &:nth-child(even){
               background-color: rgb(242, 234, 218)

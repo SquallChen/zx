@@ -3,7 +3,7 @@
     <Topbar />
     <div class="main">
       <Sidebar />
-      <Content />
+      <Contents />
     </div>
     <Footer />
   </div>
@@ -15,8 +15,8 @@ import 'normalize.css'
 import './assets/reset.css'
 import Topbar from './components/Topbar'
 import Sidebar from './components/Sidebar'
-import Content from './components/Content'
-import Footer from './components/Footer'
+import Contents from './components/Content'
+import Footers from './components/Footer'
 
 export default {
   name: 'app',
@@ -25,7 +25,7 @@ export default {
       text: '你好！！！'
     }
   },
-  components: {Topbar, Sidebar, Content, Footer}
+  components: {Topbar, Sidebar, Contents, Footers}
 }
 </script>
 
