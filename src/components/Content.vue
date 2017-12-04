@@ -1,25 +1,54 @@
 <template>
   <div id="Content">
+    <!-- 左边容器 -->
     <div class="content-left">
+    <!-- 最新学校通知 -->
       <div class="new-notice">
         <ul>
           <li class="ultitle"><span>最新学校通知</span><span><a href="#" class="more">更多>></a></span></li>
-        <!--   <li><span><a href="#">关于2016学年补交教师存档材料的通知</a></span>
-          <span class="notice-time">2017-11-28</span>
-          <span class="announcer">李流柳</span></li>
-          <li><span><a href="#">关于2016学年补交教师存档材料的通知</a></span>
-          <span class="notice-time">2017-11-28</span>
-          <span class="announcer">李流柳</span></li> -->
-          <li  v-for = "(ntcdata,index) in noticedata " v-if="index < 6" :key="ntcdata.index"><span><a href="#">{{ntcdata.notice_title}}</a></span>
+          <li  v-if="index < 6" v-for = "(ntcdata,index) in noticedata "  :key="ntcdata.index"><span><a href="#">{{ntcdata.notice_title}}</a></span>
           <span class="notice-time">{{ntcdata.release_time}}</span>
           <span class="announcer">{{ntcdata.announcer}}</span></li>
         </ul>
       </div>
-      <div class="new-students-management"></div>
-      <div class="new-public-class"></div>
-      <div class="Modifyinfo"></div>
+      <!-- 最新学生管理 -->
+      <div class="new-students-management">
+        <ul>
+          <li class="ultitle"><span>最新学生管理</span><span><a href="#" class="more">更多>></a></span></li>
+          <li  v-if="index < 6" v-for = "(ntcdata,index) in noticedata "  :key="ntcdata.index"><span><a href="#">{{ntcdata.notice_title}}</a></span>
+          <span class="notice-time">{{ntcdata.release_time}}</span>
+          <span class="announcer">{{ntcdata.announcer}}</span></li>
+        </ul>
+      </div>
+      <!-- 课题(近期公开课) -->
+      <div class="new-public-class">
+        <ul>
+          <li class="pub-ultitle"><span>课题(近期公开课)</span><span class="pub-ultitle-time">时间<a href="#" class="pub-more">更多>></a></span><span class="speaker">授课人</span></li>
+          <li  v-if="index < 8" v-for = "(ntcdata,index) in noticedata "  :key="ntcdata.index"><span><a href="#">{{ntcdata.notice_title}}</a></span>
+          <span class="pub-time">{{ntcdata.release_time}}</span>
+          <span class="pub-announcer">{{ntcdata.announcer}}</span></li>
+        </ul>
+      </div>
+      <!-- 操作纪录 -->
+      <div class="Modifyinfo">
+        <ul>
+          <li class="mod-ultitle"><span class="mod-ultitle-men">操作人</span><span class="mod-ultitle-info">学生信息修改</span><span class="mod-ultitle-time">操作时间</span></li>
+          <li>
+            <span class="mod-men">super</span>
+            <span>调整<span>田昊东的所在班别</span></span>
+            <span>2014-01-03</span>
+          </li>
+          <li>
+            <span>super</span>
+            <span>调整<span>田昊东的所在班别</span></span>
+            <span>2014-01-03</span>
+          </li>
+        </ul>
+      </div>
+
       <div class="todolist"></div>
     </div>
+    <!-- 右边容器 -->
     <div class="content-right">
       <div class="new-remind"></div>
       <div class="colleague"></div>
@@ -36,6 +65,7 @@ export default {
   data:function(){
     return {
       noticedata:'',
+      stu_manage:'',
     }
   },
   mounted: function() {
@@ -44,9 +74,12 @@ export default {
 methods: {
     getJsonInfo: function() {
         this.$http.get('notice.json').then(function(response){
-            console.log(response.data.data)
-            var tempdata = response.data.data
-            this.noticedata = tempdata
+            /* console.log(response.data.data) */
+
+            //var tempdata = response.data.****
+            //this.stu_manage = temp***
+            var tempnotice_data = response.data.notice_data
+            this.noticedata = tempnotice_data
         }).catch(function(response){
             console.log(response)
             console.log("居然没有弹窗")
@@ -71,11 +104,13 @@ methods: {
 
     ul{
       border: 2px solid #d0c7aa;
+      border-left: 3px solid #d0c7aa;
+      border-right: 3px solid #d0c7aa;
 
     >li{
       height:26px;
       padding-left:14px;
-      padding-top:1px;
+
 
       >span{
 
@@ -136,7 +171,7 @@ methods: {
       }
     }
     }
-
+/* *************左边容器 *******************/
     >.content-left{
       display: flex;
       flex-wrap: wrap;
@@ -145,38 +180,154 @@ methods: {
       >.new-notice{
         min-width:520px;
         height: 194px;
+        margin-right: 4px;
         flex-grow:1;
         &:nth-child(odd){
-        >ul{
-          border-left: 3px solid #d0c7aa;
-          border-right: 3px solid #d0c7aa;
-          >li{
-            &:nth-child(even){
-              background-color: rgb(242, 234, 218)
-          }
-          }
+          >ul{
 
-        }
+            >li{
+              &:nth-child(even){
+                background-color: rgb(242, 234, 218);
+              }
+            }
+
+          }
         }
       }
+      /* *************最新学生管理 *******************/
       >.new-students-management{
         min-width:520px;
         height: 194px;
-        background: blue;
         flex-grow:1;
+        &:nth-child(even){
+          >ul{
+
+            >li{
+              &:nth-child(odd){
+                background-color: rgb(242, 234, 218)
+              }
+            }
+
+          }
+        }
       }
+      /* *************最新公开课 *******************/
       >.new-public-class{
         min-width:520px;
         height: 298px;
-        background: black;
         flex-grow:1;
+        margin-top:6px;
+        margin-right:4px;
+
+        .speaker{
+          float:right;
+          display: inline-block;
+          width:60px;
+          border-left:2px solid #d0c7aa;
+          border-right:2px solid #d0c7aa;
+          height:26px;
+        }
+        .pub-ultitle-time{
+          float:right;
+          display: inline-block;
+          min-width:117px;
+        }
+        .pub-more{
+          margin-left:4px;
+        }
+        .pub-time{
+          float:right;
+          min-width:117px;
+        }
+        .pub-announcer{
+          border-right:2px solid #d0c7aa;
+            float:right;
+            width:60px;
+            height:26px;
+            border-left: 2px solid #d0c7aa;
+            color: #4a4949;
+        }
+        span{
+
+          text-align: center;
+          >a{
+          color: #4a4949;
+          &:hover{
+            color: #644635;
+            text-decoration: underline;
+          }
+        }
+        }
+
+        &:nth-child(odd){
+          >ul{
+            .pub-ultitle{
+                padding-left: 10px;
+                font-weight: bold;
+                color: #644635;
+                background: url('../assets/images/table_tittle.jpg') repeat-x;
+            }
+
+            >li{
+              &:nth-child(even){
+                background-color: rgb(242, 234, 218)
+              }
+            }
+
+          }
+        }
       }
+      /* *************信息修改纪录 *******************/
       >.Modifyinfo{
         min-width:520px;
         height: 298px;
-        background: orange;
         flex-grow:1;
+        margin-top:6px;
+        &:nth-child(even){
+            >ul{
+
+              >li{
+                &:nth-child(odd){
+                  background-color: rgb(242, 234, 218)
+                }
+              }
+
+            }
+        }
+
+        ul{
+          .mod-ultitle{
+           padding-left: 10px;
+           font-weight: bold;
+           color: #644635;
+           background: url('../assets/images/table_tittle.jpg') repeat-x;
+           }
+
+        >li{
+          display: flex;
+          text-align: center;
+          span{
+            display: inline-block;
+          }
+
+        .mod-ultitle-men{
+          width:98px;
+          border-right:2px solid #d0c7aa;
+        }
+        .mod-ultitle-time{
+          width:98px;
+          border-left:2px solid #d0c7aa;
+        }
+        .mod-ultitle-info{
+          flex:1;
+        }
+
+        }
+
+        }
+
       }
+      /* *************待办事项区 *******************/
       >.todolist{
         min-width:1050px;
         min-height: 234px;
@@ -184,14 +335,17 @@ methods: {
         flex-grow:1;
       }
     }
+    /* *************右边容器 *******************/
     >.content-right{
 
       min-width:164px;
+      /* *************最新提醒 *******************/
       >.new-remind{
         width:145px;
         height: 116px;
         background: yellow;
       }
+      /* *************我的同事 *******************/
       >.colleague{
         width:145px;
         min-height: 610px;
